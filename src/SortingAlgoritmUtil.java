@@ -1,4 +1,7 @@
 public class SortingAlgoritmUtil {
+    private SortingAlgoritmUtil() {
+    }
+
     public static void insertionSort(int[] numbers) {
         for (int i = 1; i < numbers.length; i++) {
             int currentNumber = numbers[i];
