@@ -19,16 +19,18 @@ public class SortingAlgoritmUtil {
         int counter = begin;
         for (int i = begin; i < end; i++) {
             if (numbers[i] < numbers[pivot]) {
-                int temp = numbers[counter];
-                numbers[counter] = numbers[i];
-                numbers[i] = temp;
+                swap(numbers, counter, i);
                 counter++;
             }
         }
-        int temp = numbers[pivot];
-        numbers[pivot] = numbers[counter];
-        numbers[counter] = temp;
+        swap(numbers, pivot, counter);
         return counter;
+    }
+
+    private static void swap(int[] numbers, int a, int b) {
+        int temp = numbers[a];
+        numbers[a] = numbers[b];
+        numbers[b] = temp;
     }
 
     public static void quickSort(int[] array, int begin, int end) {
@@ -47,9 +49,7 @@ public class SortingAlgoritmUtil {
                     min = numbers[j];
                     minId = j;
                 }
-                int temp = numbers[i];
-                numbers[i] = min;
-                numbers[minId] = temp;
+                swap(numbers, i, minId);
             }
         }
     }
