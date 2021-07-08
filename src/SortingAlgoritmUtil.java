@@ -8,17 +8,12 @@ public class SortingAlgoritmUtil {
                 j--;
             }
             numbers[j + 1] = currentNumber;
-
         }
-
     }
 
     public static int partition(int[] numbers, int begin, int end) {
-
         int pivot = end;
-
         int counter = begin;
-
         for (int i = begin; i < end; i++) {
             if (numbers[i] < numbers[pivot]) {
                 int temp = numbers[counter];
@@ -30,7 +25,6 @@ public class SortingAlgoritmUtil {
         int temp = numbers[pivot];
         numbers[pivot] = numbers[counter];
         numbers[counter] = temp;
-
         return counter;
     }
 
@@ -45,7 +39,6 @@ public class SortingAlgoritmUtil {
         for (int i = 0; i < numbers.length; i++) {
             int min = numbers[i];
             int minId = i;
-
             for (int j = i + 1; j < numbers.length; j++) {
                 if (numbers[j] < min) {
                     min = numbers[j];
@@ -54,9 +47,7 @@ public class SortingAlgoritmUtil {
                 int temp = numbers[i];
                 numbers[i] = min;
                 numbers[minId] = temp;
-
             }
         }
-
     }
 }
