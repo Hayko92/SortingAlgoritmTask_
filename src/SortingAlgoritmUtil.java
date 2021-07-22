@@ -1,24 +1,27 @@
+import java.util.List;
+
 public class SortingAlgoritmUtil {
     private SortingAlgoritmUtil() {
     }
 
-    public static void insertionSort(Comparable[] comparableObjects) {
-        for (int i = 1; i < comparableObjects.length; i++) {
-            Comparable currentObject = comparableObjects[i];
+
+    public static <T extends Comparable<T>> void insertionSort(List<T> comparableObjects) {
+        for (int i = 1; i < comparableObjects.size(); i++) {
+            T currentObject = comparableObjects.get(i);
             int j = i - 1;
-            while (j >= 0 && comparableObjects[j].compareTo(currentObject) > 0) {
-                comparableObjects[j + 1] = comparableObjects[j];
+            while (j >= 0 && comparableObjects.get(j).compareTo(currentObject) > 0) {
+                comparableObjects.set(j + 1, comparableObjects.get(j));
                 j--;
             }
-            comparableObjects[j + 1] = currentObject;
+            comparableObjects.set(j + 1, currentObject);
         }
     }
 
-    public static int partition(Comparable[] objects, int begin, int end) {
+    public static <T extends Comparable<T>> int partition(List<T> objects, int begin, int end) {
         int pivot = end;
         int counter = begin;
         for (int i = begin; i < end; i++) {
-            if (objects[i].compareTo(objects[pivot]) < 0) {
+            if (objects.get(i).compareTo(objects.get(pivot)) < 0) {
                 swap(objects, counter, i);
                 counter++;
             }
@@ -27,13 +30,13 @@ public class SortingAlgoritmUtil {
         return counter;
     }
 
-    private static void swap(Comparable[] comparableObjects, int a, int b) {
-        Comparable temp = comparableObjects[a];
-        comparableObjects[a] = comparableObjects[b];
-        comparableObjects[b] = temp;
+    private static <T extends Comparable<T>> void swap(List<T> comparableObjects, int a, int b) {
+        T temp = comparableObjects.get(a);
+        comparableObjects.set(a, comparableObjects.get(b));
+        comparableObjects.set(b, temp);
     }
 
-    public static void quickSort(Comparable[] array, int begin, int end) {
+    public static <T extends Comparable<T>> void quickSort(List<T> array, int begin, int end) {
         if (end <= begin) return;
         int pivot = partition(array, begin, end);
         quickSort(array, begin, pivot - 1);

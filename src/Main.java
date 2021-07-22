@@ -1,18 +1,17 @@
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Random random = new Random();
-        Comparable[] objects = new Comparable[15];
+        List<ComparableObj> objects = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
-            objects[i] = new ComparableObj(random.nextInt(100));
+            objects.add(new ComparableObj(random.nextInt(100)));
         }
-        System.out.println("before sorting: " + Arrays.toString(objects));
+        System.out.println("before sorting: " + objects);
         SortingAlgoritmUtil.insertionSort(objects);
-        System.out.println("after sorting: " + Arrays.toString(objects));
-        SortingAlgoritmUtil.quickSort(objects, 0, objects.length - 1);
-        System.out.println("after sorting: " + Arrays.toString(objects));
+        System.out.println("after sorting: " + objects);
+        SortingAlgoritmUtil.quickSort(objects, 0, objects.size() - 1);
+        System.out.println("after sorting: " + objects);
 
     }
 }
