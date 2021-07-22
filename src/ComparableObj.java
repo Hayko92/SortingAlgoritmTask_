@@ -1,7 +1,7 @@
-public class ComparableObjects implements Comparable{
+public class ComparableObj implements java.lang.Comparable {
     private int number;
 
-    public ComparableObjects(int number) {
+    public ComparableObj(int number) {
         this.number = number;
     }
 
@@ -15,7 +15,7 @@ public class ComparableObjects implements Comparable{
 
     @Override
     public int compareTo(Object o) {
-        return this.number-((ComparableObjects)o).getNumber();
+        return this.number - ((ComparableObj) o).getNumber();
     }
 
     @Override

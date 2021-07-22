@@ -4,9 +4,9 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         Random random = new Random();
-        ComparableObjects[] objects = new ComparableObjects[15];
+        Comparable[] objects = new Comparable[15];
         for (int i = 0; i < 15; i++) {
-            objects[i] = new ComparableObjects(random.nextInt(100));
+            objects[i] = new ComparableObj(random.nextInt(100));
         }
         System.out.println("before sorting: " + Arrays.toString(objects));
         SortingAlgoritmUtil.insertionSort(objects);
