@@ -14,16 +14,16 @@ public class SortingAlgoritmUtil {
         }
     }
 
-    public static int partition(ComparableObjects[] numbers, int begin, int end) {
+    public static int partition(ComparableObjects[] objects, int begin, int end) {
         int pivot = end;
         int counter = begin;
         for (int i = begin; i < end; i++) {
-            if (numbers[i].compareTo(numbers[pivot]) < 0) {
-                swap(numbers, counter, i);
+            if (objects[i].compareTo(objects[pivot]) < 0) {
+                swap(objects, counter, i);
                 counter++;
             }
         }
-        swap(numbers, pivot, counter);
+        swap(objects, pivot, counter);
         return counter;
     }
 
