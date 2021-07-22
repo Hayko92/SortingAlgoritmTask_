@@ -4,17 +4,15 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         Random random = new Random();
-        int[] numbers = new int[15];
+        ComparableObjects[] objects = new ComparableObjects[15];
         for (int i = 0; i < 15; i++) {
-            numbers[i] = random.nextInt(100);
+            objects[i] = new ComparableObjects(random.nextInt(100));
         }
-        System.out.println("before sorting: " + Arrays.toString(numbers));
-        SortingAlgoritmUtil.insertionSort(numbers);
-        System.out.println("after sorting: " + Arrays.toString(numbers));
-        SortingAlgoritmUtil.quickSort(numbers, 0, numbers.length - 1);
-        System.out.println("after sorting: " + Arrays.toString(numbers));
-        SortingAlgoritmUtil.selectionSort(numbers);
-        System.out.println("after sorting: " + Arrays.toString(numbers));
-        System.out.println("=========================================");
+        System.out.println("before sorting: " + Arrays.toString(objects));
+        SortingAlgoritmUtil.insertionSort(objects);
+        System.out.println("after sorting: " + Arrays.toString(objects));
+        SortingAlgoritmUtil.quickSort(objects, 0, objects.length - 1);
+        System.out.println("after sorting: " + Arrays.toString(objects));
+
     }
 }

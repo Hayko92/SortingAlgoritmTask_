@@ -2,23 +2,23 @@ public class SortingAlgoritmUtil {
     private SortingAlgoritmUtil() {
     }
 
-    public static void insertionSort(int[] numbers) {
-        for (int i = 1; i < numbers.length; i++) {
-            int currentNumber = numbers[i];
+    public static void insertionSort(ComparableObjects[] comparableObjects) {
+        for (int i = 1; i < comparableObjects.length; i++) {
+            ComparableObjects currentObject = comparableObjects[i];
             int j = i - 1;
-            while (j >= 0 && numbers[j] > currentNumber) {
-                numbers[j + 1] = numbers[j];
+            while (j >= 0 && comparableObjects[j].compareTo(currentObject) > 0) {
+                comparableObjects[j + 1] = comparableObjects[j];
                 j--;
             }
-            numbers[j + 1] = currentNumber;
+            comparableObjects[j + 1] = currentObject;
         }
     }
 
-    public static int partition(int[] numbers, int begin, int end) {
+    public static int partition(ComparableObjects[] numbers, int begin, int end) {
         int pivot = end;
         int counter = begin;
         for (int i = begin; i < end; i++) {
-            if (numbers[i] < numbers[pivot]) {
+            if (numbers[i].compareTo(numbers[pivot]) < 0) {
                 swap(numbers, counter, i);
                 counter++;
             }
@@ -27,30 +27,17 @@ public class SortingAlgoritmUtil {
         return counter;
     }
 
-    private static void swap(int[] numbers, int a, int b) {
-        int temp = numbers[a];
-        numbers[a] = numbers[b];
-        numbers[b] = temp;
+    private static void swap(ComparableObjects[] comparableObjects, int a, int b) {
+        ComparableObjects temp = comparableObjects[a];
+        comparableObjects[a] = comparableObjects[b];
+        comparableObjects[b] = temp;
     }
 
-    public static void quickSort(int[] array, int begin, int end) {
+    public static void quickSort(ComparableObjects[] array, int begin, int end) {
         if (end <= begin) return;
         int pivot = partition(array, begin, end);
         quickSort(array, begin, pivot - 1);
         quickSort(array, pivot + 1, end);
     }
 
-    public static void selectionSort(int[] numbers) {
-        for (int i = 0; i < numbers.length; i++) {
-            int min = numbers[i];
-            int minId = i;
-            for (int j = i + 1; j < numbers.length; j++) {
-                if (numbers[j] < min) {
-                    min = numbers[j];
-                    minId = j;
-                }
-                swap(numbers, i, minId);
-            }
-        }
-    }
 }
